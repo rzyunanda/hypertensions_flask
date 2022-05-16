@@ -1,9 +1,7 @@
 
-from flask import Flask, request, jsonify, render_template
-from flask_marshmallow import Marshmallow
+from flask import Flask, request, render_template
 import pickle
 import os
-import json
 import sklearn
 
 # Init app
