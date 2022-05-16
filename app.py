@@ -19,7 +19,7 @@ model_sbp = pickle.load(open(filename2, 'rb'))
 
 print('The scikit-learn version is {}.'.format(sklearn.__version__))
 # Predict
-@app.route('/', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
 
  
