@@ -1,7 +1,8 @@
 
-from flask import Flask, request, render_template
+from flask import Flask, request, jsonify, render_template
 import pickle
 import os
+import json
 import sklearn
 
 # Init app
@@ -17,7 +18,7 @@ model_sbp = pickle.load(open(filename2, 'rb'))
 
 print('The scikit-learn version is {}.'.format(sklearn.__version__))
 # Predict
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
 
  
