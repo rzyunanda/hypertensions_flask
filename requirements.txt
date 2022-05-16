@@ -1,4 +1,6 @@
 gunicorn
 Flask
 sklearn
-pickle
+numpy
+pandas
+matplotlib
