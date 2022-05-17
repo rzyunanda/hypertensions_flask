@@ -21,8 +21,6 @@ print('The scikit-learn version is {}.'.format(sklearn.__version__))
 @app.route('/', methods=['POST'])
 def predict():
 
- 
-    pred = {"success": False}
     
     sex   = request.form['sex']
     age = request.form['age']
