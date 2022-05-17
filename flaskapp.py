@@ -40,8 +40,8 @@ def predict():
 
     for x in range(0,10,1):
         age = int(age)+1
-        input_sbp = [sex,age,olahraga,tobacco,dbp,imt,domisili,tobacco_long_rec2,work,education]
-        input_dbp = [sex,age,olahraga,tobacco,sbp,imt,domisili,tobacco_long_rec2,work,education]
+        input_sbp = [[sex,age,olahraga,tobacco,dbp,imt,domisili,tobacco_long_rec2,work,education]]
+        input_dbp = [[sex,age,olahraga,tobacco,sbp,imt,domisili,tobacco_long_rec2,work,education]]
         # input_sbp = [[weight,sex,age,olahraga,tobacco,sbp,dbp,tobacco_long_rec2,domisili]]
         output_sbp = model_sbp.predict(input_sbp)
         output_dbp = model_dbp.predict(input_dbp)
@@ -58,4 +58,4 @@ def home():
 
 # Run Server
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
