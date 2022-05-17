@@ -1,6 +1,7 @@
 
 from flask import Flask, request, jsonify, render_template
 import pickle
+import numpy as np
 import os
 import json
 import sklearn
@@ -40,11 +41,17 @@ def predict():
 
     for x in range(0,10,1):
         age = int(age)+1
+        sex = int(sex)
         input_sbp = [[sex,age,olahraga,tobacco,dbp,imt,domisili,tobacco_long_rec2,work,education]]
         input_dbp = [[sex,age,olahraga,tobacco,sbp,imt,domisili,tobacco_long_rec2,work,education]]
-        # input_sbp = [[weight,sex,age,olahraga,tobacco,sbp,dbp,tobacco_long_rec2,domisili]]
-        output_sbp = model_sbp.predict(input_sbp)
-        output_dbp = model_dbp.predict(input_dbp)
+        # input_sbp = int(input_sbp)
+        #print(type(sex))
+        # input_sbp = [[weight,sex,age,olahraga,t+obacco,sbp,dbp,tobacco_long_rec2,domisili]]
+        input_sbp1 = np.array(input_sbp, dtype=float)
+        input_dbp1 = np.array(input_dbp, dtype=float)
+        
+        output_sbp = model_sbp.predict(input_sbp1)
+        output_dbp = model_dbp.predict(input_dbp1)
         # output_sbp = model_sbp.predict(input_sbp)
 
         hasil.append([age,output_sbp[0],output_dbp[0]])
